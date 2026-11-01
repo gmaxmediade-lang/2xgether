@@ -628,7 +628,7 @@ if(st){
   if(!RM)new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting&&!auto&&!done)auto=setInterval(()=>set((i+1)%3),3800);else if(!e.isIntersecting)stop()}),{threshold:.4}).observe(st);
 }
 const ul=document.querySelector('.partners .track ul');
-if(ul)[...ul.children].forEach(li=>{const c=li.cloneNode(true);c.setAttribute('aria-hidden','true');c.querySelectorAll('button').forEach(x=>x.tabIndex=-1);ul.appendChild(c)});
+if(ul){const o=[...ul.children],k=Math.ceil(Math.max(innerWidth,screen.width)/1000);for(let r=1;r<2*k;r++)o.forEach(li=>{const c=li.cloneNode(true);c.setAttribute('aria-hidden','true');c.querySelectorAll('button').forEach(x=>x.tabIndex=-1);ul.appendChild(c)});ul.style.animationDuration=(45*k)+'s'}
 if(RM)return;
 document.documentElement.classList.add('js-motion');
 const split=h=>{
@@ -647,14 +647,14 @@ const io=new IntersectionObserver(es=>{let n=0;es.forEach(e=>{if(!e.isIntersecti
 <script>
 (()=>{
 const el=document.getElementById('map');if(!el)return;
-const PTS=[{"n": "Waldgasthof Weiler Hütte", "t": "Weil", "lat": 48.61049, "lon": 9.05314}, {"n": "Seegärtle", "t": "Böblingen", "lat": 48.68361, "lon": 9.01279}, {"n": "Kowalski Stuttgart", "t": "Stuttgart", "lat": 48.78473, "lon": 9.17844}, {"n": "AMAIA Restaurant", "t": "Sindelfingen (Stadt)", "lat": 48.70376, "lon": 9.00231}, {"n": "Stern Center Sindelfingen", "t": "Sindelfingen (Stadt)", "lat": 48.70594, "lon": 8.99853}, {"n": "Bootshaus Böblingen", "t": "Böblingen", "lat": 48.6814, "lon": 9.01232},{"n": "Braugaststätte Platzhirsch", "t": "Böblingen", "lat": 48.68553, "lon": 9.01584},{"n": "Ristorante Pizzeria La Toscana", "t": "Böblingen", "lat": 48.68479, "lon": 9.01391}];
+const PTS=[{"n": "Waldgasthof Weiler Hütte", "t": "Weil", "lat": 48.61049, "lon": 9.05314}, {"n": "Seegärtle", "t": "Böblingen", "lat": 48.68361, "lon": 9.01279}, {"n": "Kowalski Stuttgart", "t": "Stuttgart", "lat": 48.78473, "lon": 9.17844}, {"n": "AMAIA Restaurant", "t": "Sindelfingen (Stadt)", "lat": 48.70376, "lon": 9.00231}, {"n": "Stern Center Sindelfingen", "t": "Sindelfingen (Stadt)", "lat": 48.70594, "lon": 8.99853}, {"n": "Bootshaus Böblingen", "t": "Böblingen", "lat": 48.6814, "lon": 9.01232},{"n": "Braugaststätte Platzhirsch", "t": "Böblingen", "lat": 48.68553, "lon": 9.01584},{"n": "Ristorante Pizzeria La Toscana", "t": "Böblingen", "lat": 48.68479, "lon": 9.01391},{"n": "Almrausch", "t": "Eventdorf im Stern-Center, Sindelfingen", "lat": 48.70700, "lon": 8.99700},{"n": "Kölbo Escape", "t": "Bad Liebenzell-Unterhaugstett", "lat": 48.76851, "lon": 8.75455}];
 const CITY={'böblingen':[48.6833,9.0117],'sindelfingen':[48.7133,9.0028],'stuttgart':[48.7758,9.1829],'calw':[48.7146,8.74]};
 const RM=matchMedia('(prefers-reduced-motion:reduce)').matches;let m;
 const init=()=>{
   const B=[[48.5,8.5],[48.95,9.4]];
   m=L.map(el,{scrollWheelZoom:false,minZoom:10,maxZoom:14,maxBounds:B,maxBoundsViscosity:1});
   L.tileLayer('tiles/{z}/{x}/{y}.png',{minZoom:10,maxZoom:14,maxNativeZoom:12,attribution:'&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>-Mitwirkende'}).addTo(m);
-  [[48.5855, 9.0181, 48.6355, 9.0881], [48.6586, 8.9778, 48.7086, 9.0478], [48.7597, 9.1434, 48.8097, 9.2134], [48.6788, 8.9673, 48.7288, 9.0373], [48.6809, 8.9635, 48.7309, 9.0335], [48.6564, 8.9773, 48.7064, 9.0473], [48.6605, 8.9808, 48.7105, 9.0508], [48.6598, 8.9789, 48.7098, 9.0489], [48.6583, 8.9767, 48.7083, 9.0467], [48.6883, 8.9678, 48.7383, 9.0378], [48.7508, 9.1479, 48.8008, 9.2179], [48.6896, 8.705, 48.7396, 8.775]].forEach(b=>L.tileLayer('tiles/{z}/{x}/{y}.png',{minZoom:13,maxZoom:14,bounds:[[b[0],b[1]],[b[2],b[3]]]}).addTo(m));
+  [[48.5855, 9.0181, 48.6355, 9.0881], [48.6586, 8.9778, 48.7086, 9.0478], [48.7597, 9.1434, 48.8097, 9.2134], [48.6788, 8.9673, 48.7288, 9.0373], [48.6809, 8.9635, 48.7309, 9.0335], [48.6564, 8.9773, 48.7064, 9.0473], [48.6605, 8.9808, 48.7105, 9.0508], [48.6598, 8.9789, 48.7098, 9.0489], [48.6583, 8.9767, 48.7083, 9.0467], [48.6883, 8.9678, 48.7383, 9.0378], [48.7508, 9.1479, 48.8008, 9.2179], [48.6896, 8.705, 48.7396, 8.775], [48.7435, 8.7196, 48.7935, 8.7896]].forEach(b=>L.tileLayer('tiles/{z}/{x}/{y}.png',{minZoom:13,maxZoom:14,bounds:[[b[0],b[1]],[b[2],b[3]]]}).addTo(m));
   const ic=L.divIcon({className:'pin',iconSize:[36,36]});
   const MK={};PTS.forEach(p=>{MK[p.n]=L.marker([p.lat,p.lon],{icon:ic,title:p.n,alt:p.n,keyboard:true}).bindPopup('<b>'+p.n+'</b>'+(p.t?'<br>'+p.t:'')).addTo(m)});
   window.mapFocus=n=>{const k=MK[n];if(k){m.setView(k.getLatLng(),14);k.openPopup()}};
@@ -679,12 +679,12 @@ f.querySelector('input').addEventListener('change',()=>{const v=f.querySelector(
 <script>
 (()=>{
 const P=[
-["Almrausch","Sindelfingen, im Stern-Center","Eventdorf",null],
+["Almrausch","Sindelfingen, im Stern-Center","Eventdorf","Almrausch"],
 ["Waldgasthof Weiler Hütte","Weil im Schönbuch","Waldgasthof","Waldgasthof Weiler Hütte"],
 ["Seegärtle","Böblingen","Café, Restaurant und Bar","Seegärtle"],
 ["Kowalski Stuttgart","Stuttgart","Club","Kowalski Stuttgart"],
 ["Braugaststätte Platzhirsch","Böblingen","Brauereigaststätte","Braugaststätte Platzhirsch"],
-["Kölbo Escape","Bad Liebenzell","Escape Room",null],
+["Kölbo Escape","Bad Liebenzell-Unterhaugstett","Escape Room","Kölbo Escape"],
 ["AMAIA Restaurant","Sindelfingen","Restaurant","AMAIA Restaurant"],
 ["Stern-Center Sindelfingen","Sindelfingen","Einkaufszentrum","Stern Center Sindelfingen"],
 ["Bootshaus Böblingen","Böblingen, am Oberen See","Bootsverleih und Restaurant","Bootshaus Böblingen"],
