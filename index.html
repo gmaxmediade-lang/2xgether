@@ -386,6 +386,24 @@ footer{background:var(--ink);color:var(--grey);padding:24px 0 32px;font-size:15p
 .nav > .wordmark{text-shadow:0 1px 3px rgba(0,0,0,.35),0 2px 18px rgba(0,0,0,.45)}
 .nav > .wordmark img{filter:drop-shadow(0 2px 10px rgba(0,0,0,.35))}
 .hero::before{content:"";position:absolute;inset:0 0 auto;height:220px;z-index:1;pointer-events:none;background:linear-gradient(180deg,rgba(0,0,0,.42) 0%,rgba(0,0,0,.18) 55%,rgba(0,0,0,0) 100%)}
+@media (max-width:600px){
+  .steps{gap:12px;margin-top:32px;padding-bottom:0}
+  .step{width:100%;display:grid;grid-template-columns:1fr 96px;grid-template-areas:"n pic" "h pic" "p p";column-gap:16px;padding:20px;border-radius:24px;transform:none}
+  .step .n{grid-area:n;font-size:30px;margin-bottom:4px}
+  .step h3{grid-area:h;font-size:21px;line-height:1.25;align-self:start}
+  .step p{grid-area:p;font-size:16px;line-height:24px;margin-top:12px}
+  .step .pic{grid-area:pic;margin:0;padding:0;align-self:start}
+  .step .pic img{width:96px;height:96px;border-radius:16px}
+  .events li{grid-template-columns:44px 1fr;column-gap:12px;row-gap:0;align-items:start;padding:12px 0}
+  .events .when{padding-top:3px}
+  .ev-title{font-size:18px;line-height:1.25}
+  .ev-place{font-size:14px}
+  .ev-count{grid-column:2;text-align:left;font-size:13px;font-weight:600;margin-top:4px}
+  .ev-count small{display:inline;margin-left:0;font-size:13px;font-weight:400}
+  .ev-count small::before{content:"·";margin:0 6px}
+  .foot > div:first-child{grid-column:1/-1;text-align:center}
+  .foot > div:first-child .claim{margin-inline:auto}
+}
 </style>
 </head>
 <body id="top">
